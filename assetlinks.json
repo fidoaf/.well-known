@@ -1,0 +1,26 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.placetoplug",
+      "sha256_cert_fingerprints": [
+        "FD:72:65:A1:E7:92:2C:BD:AA:98:00:BF:01:F5:21:84:67:36:8C:D0:1B:B2:7A:41:D5:27:68:6E:74:98:3F:E7"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.placetoplug.beta",
+      "sha256_cert_fingerprints": [
+        "0E:F6:80:D1:B9:34:EA:EA:D0:97:9D:9D:2E:95:CB:B6:EB:64:FE:FE:88:C1:25:02:61:E7:BB:02:0D:3E:42:2B"
+      ]
+    }
+  }
+]
