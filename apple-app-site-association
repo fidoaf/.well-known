@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "KG8DR8P2SK.com.placetoplug.PlaceToPlug",
+        "paths": [
+          "/path/*",
+          "/another-path/*"
+        ]
+      },
+      {
+        "appID": "KG8DR8P2SK.com.placetoplug.PlaceToPlug.beta",
+        "paths": [
+          "/path/*",
+          "/another-path/*"
+        ]
+      }
+    ]
+  }
+}
