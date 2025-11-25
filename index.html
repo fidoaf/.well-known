@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App & Deep Linking - Android & iOS</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+    }
+    
+    header p {
+      font-size: 1.2em;
+      opacity: 0.9;
+    }
+    
+    .content {
+      padding: 40px;
+    }
+    
+    .section {
+      margin-bottom: 40px;
+    }
+    
+    h2 {
+      color: #667eea;
+      font-size: 2em;
+      margin-bottom: 20px;
+      border-left: 5px solid #667eea;
+      padding-left: 15px;
+    }
+    
+    h3 {
+      color: #764ba2;
+      font-size: 1.5em;
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .platform-card {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 15px;
+      border: 2px solid #e9ecef;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .platform-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .platform-card h3 {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .icon {
+      font-size: 2em;
+    }
+    
+    .code-block {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 20px;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+    }
+    
+    ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    li {
+      margin-bottom: 10px;
+    }
+    
+    .highlight {
+      background: #fff3cd;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📱 App & Deep Linking</h1>
+      <p>Seamless Navigation for Android & iOS Applications</p>
+    </header>
+    
+    <div class="content">
+      <div class="section">
+        <h2>What is Deep Linking?</h2>
+        <p>
+          Deep linking is a technology that enables users to navigate directly to specific content within a mobile application, 
+          rather than just launching the app's home screen. It creates a seamless bridge between web content and mobile apps, 
+          enhancing user experience and engagement.
+        </p>
+        <p>
+          Deep links use URI (Uniform Resource Identifier) schemes to direct users to particular screens or features within an app, 
+          making the mobile experience more intuitive and connected to the broader digital ecosystem.
+        </p>
+      </div>
+      
+      <div class="section">
+        <h2>Types of Deep Links</h2>
+        <ul>
+          <li><strong>Traditional Deep Links:</strong> Direct users to specific content if the app is installed</li>
+          <li><strong>Deferred Deep Links:</strong> Remember the intended destination and redirect users after app installation</li>
+          <li><strong>Contextual Deep Links:</strong> Pass additional data and context along with the link</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>Platform Implementation</h2>
+        
+        <div class="platform-grid">
+          <div class="platform-card">
+            <h3><span class="icon">🤖</span> Android</h3>
+            <p>Android uses <span class="highlight">Intent Filters</span> and <span class="highlight">App Links</span> to handle deep linking.</p>
+            
+            <h4 style="margin-top: 20px;">Key Components:</h4>
+            <ul>
+              <li>URL schemes (custom URIs)</li>
+              <li>Android App Links (verified HTTPS)</li>
+              <li>Intent filters in AndroidManifest.xml</li>
+              <li>Digital Asset Links for verification</li>
+            </ul>
+            
+            <div class="code-block">
+&lt;intent-filter&gt;
+  &lt;action android:name="android.intent.action.VIEW" /&gt;
+  &lt;category android:name="android.intent.category.DEFAULT" /&gt;
+  &lt;category android:name="android.intent.category.BROWSABLE" /&gt;
+  &lt;data android:scheme="myapp" android:host="product" /&gt;
+&lt;/intent-filter&gt;
+            </div>
+          </div>
+          
+          <div class="platform-card">
+            <h3><span class="icon">🍎</span> iOS</h3>
+            <p>iOS implements deep linking through <span class="highlight">Custom URL Schemes</span> and <span class="highlight">Universal Links</span>.</p>
+            
+            <h4 style="margin-top: 20px;">Key Components:</h4>
+            <ul>
+              <li>Custom URL schemes</li>
+              <li>Universal Links (HTTPS-based)</li>
+              <li>Associated Domains capability</li>
+              <li>apple-app-site-association file</li>
+            </ul>
+            
+            <div class="code-block">
+// Handle Universal Link
+func application(_ application: UIApplication,
+  continue userActivity: NSUserActivity,
+  restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+  guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+      let url = userActivity.webpageURL else { return false }
+  // Handle deep link
+  return true
+}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="section">
+        <h2>Benefits of Deep Linking</h2>
+        <ul>
+          <li>🎯 <strong>Improved User Experience:</strong> Direct navigation to relevant content</li>
+          <li>📈 <strong>Higher Conversion Rates:</strong> Reduce friction in user journey</li>
+          <li>🔄 <strong>Better Re-engagement:</strong> Bring users back to specific features</li>
+          <li>📊 <strong>Enhanced Analytics:</strong> Track user behavior across platforms</li>
+          <li>🚀 <strong>Seamless Onboarding:</strong> Guide new users to key features</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <h2>Best Practices</h2>
+        <ul>
+          <li>Always provide fallback URLs for users without the app installed</li>
+          <li>Use universal/app links over custom URL schemes for better security</li>
+          <li>Test deep links thoroughly across different devices and OS versions</li>
+          <li>Implement proper error handling for invalid or expired links</li>
+          <li>Monitor deep link performance with analytics tools</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
